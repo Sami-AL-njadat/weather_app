@@ -20,7 +20,7 @@ cityInput.addEventListener('keyup', function (event) {
 });
 
 async function fetchWeatherImages() {
-    const imageUrl = 'http://localhost/OPENSOOQ/weather/frontend/js/image.json';
+     const imageUrl = 'http://localhost/weather_app/weather/frontend/js/image.json';
 
     try {
         const response = await fetch(imageUrl);
@@ -97,7 +97,9 @@ function getWeather(cityInputValue) {
 
 async function fetchWeather(city) {
     try {
-        const response = await fetch(`http://localhost/OPENSOOQ/weather/backend/weather.php?city=${city}`);
+        const response = await fetch(
+          `http://localhost/weather_app/weather/backend/weather.php?city=${city}`
+        );
         const data = await response.json();
 
 
@@ -132,7 +134,9 @@ function getUserLocation() {
 async function fetchWeatherByCoordinates(latitude, longitude) {
     console.log('latitude', latitude);
     try {
-        const response = await fetch(`http://localhost/OPENSOOQ/weather/backend/weather.php?lat=${latitude}&lon=${longitude}`);
+        const response = await fetch(
+          `http://localhost/weather_app/weather/backend/weather.php?lat=${latitude}&lon=${longitude}`
+        );
         const data = await response.json();
 
         return data;
